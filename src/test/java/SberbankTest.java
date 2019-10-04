@@ -39,7 +39,7 @@ public class SberbankTest {
                 driver.findElement(By.xpath(xp.HEADER)).getText());
 
         waitForClickable(xp.ONLINE);
-        driver.findElement(By.xpath(xp.ONLINE)).click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(By.xpath(xp.ONLINE)));
 
         ArrayList<String> handles = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(handles.get(1));
